@@ -8,6 +8,7 @@ function displaySportsGif() {
     var sports = $(this).attr("data-sports");
 
     var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + sports + "&api_key=e8VuvuWDCwArUBIdlcHCID93dVh58Qnz&limit=10";
+    
 
 
 
@@ -34,7 +35,10 @@ $.ajax({
         var sportsImage = $("<img>");
         var p = $("<p>").text("rating: " + results[i].rating);
 
-        sportsImage.attr("src", results[i].images.fixed_height.url);
+        sportsImage.attr("src", results[i].images.fixed_height_still.url);
+        sportsImage.attr("data-still", results[i].images.fixed_height_still.url);
+        sportsImage.attr("data-animate", results[i].images.fixed_height.url);
+        sportsImage.attr("data-state", "still");
 
         sportsDiv.append(p);
         sportsDiv.append(sportsImage);
@@ -42,6 +46,25 @@ $.ajax({
 
     }
   });
+  $(document).on("click", "img", function(){
+    var state= $(this).attr("data-state");
+
+    if (state === "still"){
+
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+
+
+    }else{
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+
+
+
+
+
+  })
 
 }
 function renderButtons() {
