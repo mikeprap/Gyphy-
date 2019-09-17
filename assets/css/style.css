@@ -7,3 +7,8 @@ button {
     background-color: blue;
     color: white;
 }
+
+body {
+    background-image: url(/assets/images/papyrus.png);
+    margin: 0;
+}

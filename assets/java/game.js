@@ -44,3 +44,15 @@ $.ajax({
   });
 
 });
+$("#add-sport").on("click", function(event) {
+    event.preventDefault();
+    
+    var sport = $("#sports-input").val().trim();
+
+    
+    sports.push(sport);
+
+    
+    renderButtons();
+  });
+
