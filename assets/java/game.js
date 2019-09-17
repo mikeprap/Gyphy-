@@ -50,9 +50,9 @@ $("#add-sport").on("click", function(event) {
     var sport = $("#sports-input").val().trim();
 
     
-    sports.push(sport);
+    topics.push(sport);
 
     
-    renderButtons();
+    
   });
 
