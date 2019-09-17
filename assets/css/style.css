@@ -1,0 +1,9 @@
+#sports-image-gifs {
+    float: left;
+    padding: 20px;
+}
+
+button {
+    background-color: blue;
+    color: white;
+}

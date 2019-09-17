@@ -28,10 +28,11 @@ $.ajax({
 
         var sportsDiv = $("<div>");
 
-        var p = $("<p>").text("rating: " + results[i].rating);
+        
         
 
         var sportsImage = $("<img>");
+        var p = $("<p>").text("rating: " + results[i].rating);
 
         sportsImage.attr("src", results[i].images.fixed_height.url);
 
