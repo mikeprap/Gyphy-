@@ -3,7 +3,7 @@ var topics = ["football", "baseball", "soccer", "hockey"]
 
 
 
-$("button").on("click", function() {
+function displaySportsGif() {
 
     var sports = $(this).attr("data-sports");
 
@@ -43,7 +43,27 @@ $.ajax({
     }
   });
 
-});
+}
+function renderButtons() {
+
+    
+    $("#buttons-view").empty();
+
+    
+    for (var i = 0; i < topics.length; i++) {
+
+      
+      var a = $("<button>");
+      
+      a.addClass("sports");
+      
+      a.attr("data-sports", topics[i]);
+      
+      a.text(topics[i]);
+      
+      $("#buttons-view").append(a);
+    }
+  }
 $("#add-sport").on("click", function(event) {
     event.preventDefault();
     
@@ -52,7 +72,9 @@ $("#add-sport").on("click", function(event) {
     
     topics.push(sport);
 
-    
+    renderButtons();
     
   });
+  $(document).on("click", ".sports", displaySportsGif);
+  renderButtons();
 
